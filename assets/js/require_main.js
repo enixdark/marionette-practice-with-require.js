@@ -5,7 +5,9 @@ require.config({
         underscore: 'vendor/underscore-min',
         json2: 'vendor/json2',
         backbone: 'vendor/backbone-min',
-        marionette: 'vendor/backbone.marionette.min'
+        marionette: 'vendor/backbone.marionette.min',
+        "jquery-ui": "vendor/jqueryui.min",
+        localstorage: 'vender/backbone.localStorage'
     },
     shim:{
         underscore: {
@@ -18,7 +20,9 @@ require.config({
         marionette: {
             deps: ['backbone'],
             exports: 'Marionette'
-        }
+        },
+        "jquery-ui": ["jquery"],
+        localstorage: ["backbone"]
     },
     
 });
