@@ -1,16 +1,19 @@
-define(['marionette','apps/config/marionette/regions/dialog'], function(Marionette){
+define(['marionette',
+                    'apps/config/marionette/regions/dialog'], function(Marionette){
     var ContactManager = new Marionette.Application();
 
     ContactManager.on("start", function(){
         console.log("contact Manager has start");
-        var fetchingContacts = ContactManager.request("contact.entities");
-        $.when(fetchingContacts).done(function(contacts){
+        require(["entities/contact"], function(){
+            var fetchingContacts = ContactManager.request("contact:entities");
+            $.when(fetchingContacts).done(function(contacts){
             console.log(contacts);
+            });
         });
         if(Backbone.history){
             Backbone.history.start();
             if(this.getCurrentRoute() === ""){
-                ContactManager.trigger("contact list");
+                ContactManager.trigger("contact:list");
             }
         }
     });
@@ -30,7 +33,6 @@ define(['marionette','apps/config/marionette/regions/dialog'], function(Marionet
     ContactManager.getCurrentRoute = function(){
         return Backbone.history.fragment;
     };
-
     return ContactManager;
 });
 

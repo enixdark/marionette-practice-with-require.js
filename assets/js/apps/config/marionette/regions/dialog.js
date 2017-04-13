@@ -11,7 +11,7 @@ define(['marionette','jquery-ui'], function(Marionette){
                 close: function(e, ui){
                     self.closeDialog();
                 }
-            })
+            });
         },
         closeDialog: function(){
             this.stopListening(),

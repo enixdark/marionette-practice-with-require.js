@@ -7,7 +7,7 @@ require.config({
         backbone: 'vendor/backbone-min',
         marionette: 'vendor/backbone.marionette.min',
         "jquery-ui": "vendor/jqueryui.min",
-        localstorage: 'vender/backbone.localStorage'
+        localstorage: 'vendor/backbone.localStorage'
     },
     shim:{
         underscore: {
