@@ -2,12 +2,16 @@ require.config({
     baseUrl: 'assets/js',
     paths: {
         jquery: 'vendor/jquery.min',
-        underscore: 'vendor/underscore-min',
         json2: 'vendor/json2',
         backbone: 'vendor/backbone-min',
         marionette: 'vendor/backbone.marionette.min',
         "jquery-ui": "vendor/jqueryui.min",
-        localstorage: 'vendor/backbone.localStorage'
+        localstorage: 'vendor/backbone.localStorage',
+        lodash: 'vendor/lodash.min',
+        lodash_underscore: 'vendor/lodash.underscore',
+        text: 'vendor/text',
+        tpl: "vendor/underscore-tpl",
+        underscore: 'vendor/underscore-min',
     },
     shim:{
         underscore: {
@@ -22,7 +26,8 @@ require.config({
             exports: 'Marionette'
         },
         "jquery-ui": ["jquery"],
-        localstorage: ["backbone"]
+        localstorage: ["backbone"],
+        tpl: ["text"],
     },
     
 });

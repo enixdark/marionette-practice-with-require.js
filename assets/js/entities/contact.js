@@ -46,7 +46,7 @@ define(['app', 'apps/config/storage/localstorage'], function(ContactManager){
             { id: 3, firstName: "Charlie", lastName: "Campbell", phoneNumber: "555-0129" }
             ]);
             contacts.forEach(function(contact){
-            contact.save();
+                contact.save();
             });
             return contacts.models;
         };
@@ -57,19 +57,20 @@ define(['app', 'apps/config/storage/localstorage'], function(ContactManager){
             var defer = $.Deferred();
             contacts.fetch({
                 success: function(data){
-                defer.resolve(data);
+                    defer.resolve(data);
                 }
             });
             var promise = defer.promise();
+
             $.when(promise).done(function(fetchedContacts){
                 if(fetchedContacts.length === 0){
-                // if we don't have any contacts yet, create some for convenience
-                var models = initializeContacts();
-                contacts.reset(models);
-                }
-            });
+                        var models = initializeContacts();
+                        contacts.reset(models);
+                    }
+                });
             return promise;
             },
+
 
             getContactEntity: function(contactId){
             var contact = new Entities.Contact({id: contactId});
@@ -99,5 +100,5 @@ define(['app', 'apps/config/storage/localstorage'], function(ContactManager){
 
     });
     // return;
-    return ContactManager;
+    return ContactManager.Entities;
 });

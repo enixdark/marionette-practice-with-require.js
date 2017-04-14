@@ -4,17 +4,20 @@ define(['marionette',
 
     ContactManager.on("start", function(){
         console.log("contact Manager has start");
-        require(["entities/contact"], function(){
-            var fetchingContacts = ContactManager.request("contact:entities");
-            $.when(fetchingContacts).done(function(contacts){
-            console.log(contacts);
-            });
-        });
+        // require(["entities/contact"], function(){
+        //     var fetchingContacts = ContactManager.request("contact:entities");
+        //     $.when(fetchingContacts).done(function(contacts){
+        //     console.log(contacts);
+        //     });
+        // });
+        // debugger
         if(Backbone.history){
-            Backbone.history.start();
-            if(this.getCurrentRoute() === ""){
-                ContactManager.trigger("contact:list");
-            }
+            require(['apps/contacts/contacts_app'], function(){
+                Backbone.history.start();
+                if(ContactManager.getCurrentRoute() === "/"){
+                    ContactManager.trigger("contact:list");
+                }
+            });   
         }
     });
     ContactManager.addRegions({
@@ -26,12 +29,13 @@ define(['marionette',
     });
 
     ContactManager.navigate = function(route, options){
-        options || (options = {})
+        options = options || (options = {});
         Backbone.history.navigate(route, options);
     };
     
     ContactManager.getCurrentRoute = function(){
-        return Backbone.history.fragment;
+        // return Backbone.history.fragment;
+        return Backbone.history.location.pathname;
     };
     return ContactManager;
 });

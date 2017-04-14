@@ -21,6 +21,8 @@
     "bootstrap": "^3.3.7",
     "requirejs": "^2.3.3",
     "json2": "*",
-    "backbone.localStorage": "backbone.localstorage#^1.1.16"
+    "backbone.localStorage": "backbone.localstorage#^1.1.16",
+    "underscore-tpl": "^0.3.3",
+    "text": "^2.0.15"
   }
 }

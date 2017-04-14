@@ -51,6 +51,6 @@ define(['app','localstorage'], function(ContactManager){
     });
 
     // return;
-    return ContactManager;
+    return ContactManager.Entities;
     // return ContactManager.Entities.configureStorage;
 });
